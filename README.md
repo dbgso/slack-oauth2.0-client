@@ -4,9 +4,34 @@
 
 ## Slackアプリの登録
 
-https://api.slack.com/apps
+まず、Slackアプリの登録が必要になります
 
-`client_id`と`client_secret`を取得してください
+[Slack API: Applications | Slack](https://api.slack.com/apps) を開いて、`Create New App` を選択して、任意のアプリ名とチームを選択してください。
+
+## ClientIDの取得
+
+`Basic Information`のページの画面中央の`App Credentials`にIDが書いてあります
+
+`Client ID`と`Client Secret`が必要になるので控えておいてください。(**漏洩しないよう注意**)
+
+ただ、いつでも見えるので後でも良いです。
+
+## Recirect URLsの設定
+
+左メニューより、`OAuth & Permissions`を選択します。
+
+`Redirect URLs`の項目からコールバックを受けるサーバのURLを追加します。
+
+今回はローカルサーバに立てるので、`http://localhost:3000`を登録します。
+
+
+## Scopeの設定
+
+画面下部の`Scopes`中の`Select Permission Scopes`から`users:read`を選択します
+
+> 認可のみであれば`identity.basic`でも良いのですが、サンプルコードではユーザ情報まで取得しているため、これを選択します
+
+ここまででSlack側の設定は完了です
 
 ## 環境構築
 
